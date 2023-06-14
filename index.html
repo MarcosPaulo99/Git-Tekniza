@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      button {
+        padding: 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="display" disabled />
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendNumber(7)">7</button>
+      <button onclick="appendNumber(8)">8</button>
+      <button onclick="appendNumber(9)">9</button>
+      <button onclick="appendOperator('+')">+</button>
+      <button onclick="appendNumber(4)">4</button>
+      <button onclick="appendNumber(5)">5</button>
+      <button onclick="appendNumber(6)">6</button>
+      <button onclick="appendOperator('-')">-</button>
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      <button onclick="appendOperator('*')">*</button>
+      <button onclick="appendNumber(0)">0</button>
+      <button onclick="appendOperator('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendOperator('/')">/</button>
+    </div>
+
+    <script>
+      let currentDisplay = "";
+      let currentOperator = "";
+
+      function updateDisplay(value) {
+        const display = document.getElementById("display");
+        display.value = value;
+      }
+
+      function clearDisplay() {
+        currentDisplay = "";
+        updateDisplay(currentDisplay);
+      }
+
+      function appendNumber(number) {
+        currentDisplay += number;
+        updateDisplay(currentDisplay);
+      }
+
+      function appendOperator(operator) {
+        currentOperator = operator;
+        currentDisplay += operator;
+        updateDisplay(currentDisplay);
+      }
+
+      function calculate() {
+        const result = eval(currentDisplay);
+        currentDisplay = result;
+        updateDisplay(currentDisplay);
+      }
+    </script>
+  </body>
+</html>

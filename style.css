@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 10px;
+  font-size: 20px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e6e6e6;
+}
+
+#display {
+  grid-column: 1 / -1;
+  padding: 10px;
+  font-size: 24px;
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
